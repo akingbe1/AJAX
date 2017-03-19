@@ -13,10 +13,6 @@ var topics = ["Michael Jackson", "Prince", "Whitney Houston", "Lady Gaga", "Just
 
 
 
-
-
-
-
 function dispayArtistInfo() {
 
 	var artist = $(this).attr("data-artist");
@@ -36,15 +32,35 @@ function dispayArtistInfo() {
 				var rating = results[i].rating;
 				var p = $("<p>").text("Rating: " + rating);
 				var artistImage = $("<img>");
-				artistImage.attr("src", results[i].images.fixed_height.url);
+				artistImage.attr("src", results[i].images.fixed_height_still.url);
+				artistImage.attr("data-still", results[i].images.fixed_height_still.url);
+				artistImage.attr("data-animate", results[i].images.fixed_height.url);
+				artistImage.attr("data-state", "still");
+				artistImage.attr("class", "gif");
 				gifDiv.append(p);
 				gifDiv.append(artistImage);
 				$("#gifs-appear-here").prepend(gifDiv);
-				console.log(queryURL);
+				console.log(response);
 			}
 		}
 	})
 };
+
+
+$(".gif").on("click", function() {
+    
+      var state = $(this).attr("data-state");
+      if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+        console.log(state);
+      }
+ });
+
+
 
 
 $("#add-artist").on("click", function(event) {
@@ -54,6 +70,12 @@ $("#add-artist").on("click", function(event) {
 	renderButtons();
 	
 });
+
+
+
+
+
+
 
 $(document).on("click", ".artist", dispayArtistInfo);
 
