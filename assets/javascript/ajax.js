@@ -1,4 +1,4 @@
-var topics = ["Michael Jackson", "Prince", "Whitney Houston", "Lady Gaga", "Justin Timberlake" ];
+var topics = ["Michael Jackson", "Prince", "Whitney Houston", "Lady Gaga", "Justin Timberlake", "Kanye West", "Beyonce", "Jay-Z", "Madonna", "Drake", "Rihanna" ];
 
       function renderButtons() {
         $("#artists-view").empty();      
@@ -37,7 +37,6 @@ function dispayArtistInfo() {
 				artistImage.attr("data-animate", results[i].images.fixed_height.url);
 				artistImage.attr("data-state", "still");
 				artistImage.attr("class", "gif");
-				//artistImage.on("click", ImageClicked());
 				gifDiv.append(p);
 				gifDiv.append(artistImage);
 				$("#gifs-appear-here").prepend(gifDiv);
@@ -47,6 +46,10 @@ function dispayArtistInfo() {
 	})
 };
 
+
+
+
+
 function ImageClicked()
 {
 	 var state = $(this).attr("data-state");
@@ -54,29 +57,11 @@ function ImageClicked()
       if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-        //console.log(state);
       } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-        //console.log(state);
       }
 }
-
-/*$(".item").on("click", function() {
-   
-     var state = $(this).attr("data-state");
-      console.log("in");
-      if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-       $(this).attr("data-state", "animate");
-       console.log(state);
-     } else {
-       $(this).attr("src", $(this).attr("data-still"));
-       $(this).attr("data-state", "still");
-       console.log(state);
-     }
- });*/
-
 
 
 
