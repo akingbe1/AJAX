@@ -16,7 +16,7 @@ var topics = ["Michael Jackson", "Prince", "Whitney Houston", "Lady Gaga", "Just
 function dispayArtistInfo() {
 
 	var artist = $(this).attr("data-artist");
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + artist + "&api_key=dc6zaTOxFJmzC&limit=10";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + artist + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 	$.ajax({
         url: queryURL,
@@ -53,7 +53,6 @@ function dispayArtistInfo() {
 function ImageClicked()
 {
 	 var state = $(this).attr("data-state");
-      //
       if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
