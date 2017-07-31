@@ -1,0 +1,27 @@
+body { 
+  background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#artists-view {
+	color: white;
+}
+
+button {
+	background-color: #424949;
+}
+
+label, p {
+	color: white;
+}
+
+#gifs-appear-here {
+	float: left;
+	height: 200px;
+	width: 200px;
+	margin: 10px;
+}
+
